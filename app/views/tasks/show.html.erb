@@ -1,0 +1,20 @@
+<% provide(:title, "Tasks Detail") %>
+<% provide(:intro, "TODOの詳細です。") %>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>タイトル</th>
+			<th>内容</th>
+			<th>期日</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th><%= @task.title %></th>
+			<td><%= @task.content %></td>
+			<td><%= @task.duedate %></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to '一覧', tasks_path, class:"btn btn-primary" %>

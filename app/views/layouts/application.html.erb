@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4"><%= yield(:title) %></h1>
+        <p class="lead"><%= yield(:intro) %></p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="page-header">
+        <%= link_to 'TODO一覧', tasks_path, class:"btn btn-info" %>
+        <%= link_to '新規作成', new_task_path, class:"btn btn-primary" %>
+      </div>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

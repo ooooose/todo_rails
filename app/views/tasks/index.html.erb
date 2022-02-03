@@ -1,0 +1,12 @@
+<% provide(:title, "Tasks Index") %>
+<% provide(:intro, "TODO一覧です。TODOを消化していきましょう。") %>
+
+<% @tasks.each do |task| %>
+  <div class="alert alert-info">
+    <h3>タイトル：<%= link_to task.title, task %></h3>
+    <h3>期日：<%= task.duedate %></h3>
+    <%= link_to '編集', edit_task_path(task), class:"btn btn-info" %>
+    <%= link_to '削除', task,method: :delete, class: "btn btn-danger", 
+                        data: { confirm: "タスク「#{task.title}」を削除します。よろしいですか？" } %>
+  </div>
+<% end %>

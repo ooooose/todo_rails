@@ -1,0 +1,19 @@
+<% provide(:title, "Edit TODO") %>
+<% provide(:intro, "TODOの編集ページです。") %>
+
+<div class="container">
+  <%= form_for(@task) do |f| %>
+  
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+    
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+    
+    <%= f.label :duedate %>
+    <%= f.date_select :duedate, class: "form-control" %>
+    
+    
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+  <% end %>
+</div>
