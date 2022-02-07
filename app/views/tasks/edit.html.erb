@@ -1,6 +1,7 @@
 <% provide(:title, "Edit TODO") %>
 <% provide(:intro, "TODOの編集ページです。") %>
 
+<%= render "share/errors_message" %>
 <div class="container">
   <%= form_for(@task) do |f| %>
   

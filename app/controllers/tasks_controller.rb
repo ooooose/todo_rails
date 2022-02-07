@@ -9,10 +9,13 @@ class TasksController < ApplicationController
   end
   
   def create
-    task = Task.new(task_params)
-    task.save!
-    flash[:success] = "作成に成功しました！"
-    redirect_to tasks_url
+    @task = Task.new(task_params)
+    if @task.save
+      flash[:success] = "作成に成功しました！"
+      redirect_to tasks_url
+    else
+      render :new
+    end
   end
   
 
@@ -21,10 +24,13 @@ class TasksController < ApplicationController
   end
   
   def update
-    task = Task.find(params[:id])
-    task.update!(task_params)
-    flash[:success] = "編集が成功しました！"
-    redirect_to tasks_url
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "編集が成功しました！"
+      redirect_to tasks_url
+    else
+      render :edit
+    end
   end
 
   def new
