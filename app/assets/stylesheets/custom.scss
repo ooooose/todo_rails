@@ -2,6 +2,7 @@
 @import "bootstrap";
 
 
+
 input{
   margin-bottom: 20px;
 }
@@ -12,4 +13,21 @@ select {
 
 .btn{
   text-align:right;
+}
+
+.box-part{
+  margin-bottom:15px;
+  border:1px solid black;
+  border-radius: 8px;
+}
+
+.edit-part{
+  display:flex;
+  h2{
+    margin-right:20px;
+  }
+  .btn{
+    display:inline-block;
+    margin-right:10px;
+  }
 }

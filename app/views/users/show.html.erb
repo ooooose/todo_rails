@@ -1,0 +1,13 @@
+<% provide(:title, "User Detail") %>
+<% provide(:intro, "ユーザーの詳細です") %>
+<div class="container">
+  <%= gravatar_for @user %>
+  <div class="edit-part">
+    <h2>Name: <%= @user.name %></h2>
+    <h2>Email:<%= @user.email %></h2>
+    <% if @user.id == current_user.id %>
+      <%= link_to "編集", edit_user_path, class: "btn btn-primary"  %>
+      <%= link_to "削除", user_path(@user), method: :delete, class: "btn btn-primary"  %>
+    <% end %>
+  </div>
+</div>
